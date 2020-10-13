@@ -1,9 +1,22 @@
 defmodule Gas.Decode do
-  def decode({"text/plain", request_url, body}) do
-    {request_url, body}
+  def decode([], acc) do
+    acc
   end
 
-  def decode({_, request_url, body}) do
-    {request_url, Jason.decode!(body)}
+  def decode([response | data], acc) do
+    decode(data, [decode(response) | acc])
+  end
+
+  def decode(data) when is_list(data) do
+    acc = []
+    decode(data, acc)
+  end
+
+  def decode({"text/plain", body}) do
+    body
+  end
+
+  def decode({_, body}) do
+    Jason.decode!(body)
   end
 end

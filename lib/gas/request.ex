@@ -1,7 +1,10 @@
 defmodule Gas.Request do
-  def get(opts) do
-    url = Keyword.fetch!(opts, :url)
+  alias Gas.Common
+
+  def request(opts) do
+    module = Process.get(:integration)
+    url = Keyword.get(opts, :url, apply(module, :url, []))
     options = Keyword.get(opts, :options, [])
-    HTTPoison.get!(url, [{"Accept", "application/json"}], [])
+    apply(module, :get, [url, options])
   end
 end
