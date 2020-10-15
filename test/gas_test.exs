@@ -1,16 +1,34 @@
 defmodule GasTest do
   use ExUnit.Case
   doctest Gas
+  require Logger
 
   test "greets the world (actuall integration test)" do
+    Process.flag(:trap_exit, true)
+
+    result =
+      Gas.integrations()
+      |> Enum.map(fn m ->
+        try do
+          Gas.get(m)
+        rescue
+          kind ->
+            _ = Logger.error("#{inspect(kind)}")
+            %Gas{}
+        end
+      end)
+      |> Enum.map(fn gas ->
+        is_float(gas.fast) and is_float(gas.fastest) and is_float(gas.low) and
+          is_float(gas.standard) and is_binary(gas.name)
+      end)
+
     Gas.integrations()
-    |> Enum.map(fn m -> Gas.get(m) end)
-    |> Enum.map(fn gas ->
-      assert is_float(gas.fast)
-      assert is_float(gas.fastest)
-      assert is_float(gas.low)
-      assert is_float(gas.standard)
-      assert is_binary(gas.name)
+    |> Enum.zip(result)
+    |> Enum.map(fn
+      {integration, false} -> Logger.warn("#{integration} failed.")
+      {_, true} -> :ok
     end)
+
+    assert Enum.all?(result)
   end
 end

@@ -22,7 +22,6 @@ defmodule Gas.MixProject do
   defp deps do
     [
       {:httpoison, "1.6.0"},
-      {:hackney, "1.15.2", override: true},
       {:jason, "~> 1.2"}
     ]
   end
