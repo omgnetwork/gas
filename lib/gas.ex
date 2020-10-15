@@ -26,7 +26,7 @@ defmodule Gas do
 
   def integrations() do
     [
-      #Gas.Integration.EthGasStationApi,
+      # Gas.Integration.EthGasStationApi,
       Gas.Integration.GasPriceOracle,
       Gas.Integration.Pulse,
       Gas.Integration.Web3Api
