@@ -5,7 +5,7 @@ defmodule GasTest do
   test "greets the world (actuall integration test)" do
     Gas.integrations()
     |> Enum.map(fn m -> Gas.get(m) end)
-    |> Enum.map(fn gas -> 
+    |> Enum.map(fn gas ->
       assert is_float(gas.fast)
       assert is_float(gas.fastest)
       assert is_float(gas.low)

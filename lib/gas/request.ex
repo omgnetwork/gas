@@ -1,6 +1,4 @@
 defmodule Gas.Request do
-  alias Gas.Common
-
   def request(opts) do
     module = Process.get(:integration)
     url = Keyword.get(opts, :url, apply(module, :url, []))
