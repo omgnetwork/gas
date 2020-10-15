@@ -2,7 +2,6 @@ defmodule Gas.Integration.Etherscan do
   def url(), do: "https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey="
 
   def map2struct(body) do
-    IO.inspect(body)
     standard = String.to_integer(body["result"]["SafeGasPrice"]) * 1.0
 
     %Gas{
