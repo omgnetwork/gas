@@ -18,6 +18,8 @@ defmodule GasTest do
         end
       end)
       |> Enum.map(fn gas ->
+        _ = Logger.info("Gas response #{inspect(gas)}")
+
         is_float(gas.fast) and is_float(gas.fastest) and is_float(gas.low) and
           is_float(gas.standard) and is_binary(gas.name)
       end)
