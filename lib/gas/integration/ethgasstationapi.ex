@@ -10,7 +10,7 @@ defmodule Gas.Integration.EthGasStationApi do
       standard: standard,
       # we don't want to leave it blank so we assume low is 60% of standard
       low: standard * 60 / 100,
-      name: __MODULE__ |> Module.split() |> Enum.reverse() |> hd()
+      name: "EthGasStationApi"
     }
   end
 

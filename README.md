@@ -11,6 +11,7 @@ WEB3API_API_KEY=<>
 
 ETH Gas Station API is https://www.ethgasstationapi.com/. Seems to be free. But currently disabled since the SSL cert expired. (15 October 2020)
 Gas Price Oracle is https://www.etherchain.org/. Seems to be free.
+Etherscan is https://etherscan.io/apis#gastracker. Seems to be free (rate limit of 1/5sec applied).
 
 ## Installation
 

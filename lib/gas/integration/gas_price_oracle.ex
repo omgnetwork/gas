@@ -7,7 +7,7 @@ defmodule Gas.Integration.GasPriceOracle do
       fastest: body["fastest"] * 1.0,
       standard: body["standard"] * 1.0,
       low: body["safeLow"] * 1.0,
-      name: __MODULE__ |> Module.split() |> Enum.reverse() |> hd()
+      name: "GasPriceOracle"
     }
   end
 

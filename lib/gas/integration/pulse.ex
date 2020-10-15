@@ -9,7 +9,7 @@ defmodule Gas.Integration.Pulse do
       fastest: div(body["fastest"], 10) * 1.0,
       standard: div(body["average"], 10) * 1.0,
       low: div(body["safeLow"], 10) * 1.0,
-      name: __MODULE__ |> Module.split() |> Enum.reverse() |> hd()
+      name: "Pulse"
     }
   end
 

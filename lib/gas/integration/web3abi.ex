@@ -7,7 +7,7 @@ defmodule Gas.Integration.Web3Api do
       fastest: div(body["payload"]["fastest"]["gasPrice"], 1_000_000_000) * 1.0,
       standard: div(body["payload"]["average"]["gasPrice"], 1_000_000_000) * 1.0,
       low: div(body["payload"]["safeLow"]["gasPrice"], 1_000_000_000) * 1.0,
-      name: __MODULE__ |> Module.split() |> Enum.reverse() |> hd()
+      name: "Web3Api"
     }
   end
 

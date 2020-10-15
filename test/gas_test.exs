@@ -13,7 +13,7 @@ defmodule GasTest do
           Gas.get(m)
         rescue
           kind ->
-            _ = Logger.error("#{inspect(kind)}")
+            _ = Logger.error("#{m} error #{inspect(kind)}")
             %Gas{}
         end
       end)
