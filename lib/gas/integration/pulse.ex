@@ -1,6 +1,7 @@
 defmodule Gas.Integration.Pulse do
   def url() do
-    "https://data-api.defipulse.com/api/v1/egs/api/ethgasAPI.json?api-key="
+    #"https://data-api.defipulse.com/api/v1/egs/api/ethgasAPI.json?api-key="
+    "https://ethgasstation.info/api/ethgasAPI.json?api-key="
   end
 
   def map2struct(body) do
